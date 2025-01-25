@@ -113,7 +113,7 @@
 \newcommand{\q}{\stepcounter{enuma}\vskip 0.3cm\noindent\textbf{\arabic{enuma}}.\ }%question d'un exercice
 
 \newcounter{enumaa}[enuma]%compteur
-\newcommand{\qq}{\stepcounter{enumaa}\vskip 0.3cm\noindent\textbf{\alph{enumaa}}.\ }%sous-question d'un exercice
+\newcommand{\qq}{\stepcounter{enumaa}\textbf{\alph{enumaa}}.\ }%sous-question d'un exercice
 
 %Raccourcis de fonction
 
