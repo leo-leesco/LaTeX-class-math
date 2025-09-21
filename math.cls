@@ -8,13 +8,8 @@
 
 \DeclareOption{long}{
 	\PassOptionsToClass{11pt,a4paper,oneside}{report}
-	\DeclareOption*{
-		\PassOptionsToClass{\CurrentOption}{report}
-	}
-	\ProcessOptions\relax
-	\LoadClass{report}
-	\newcounter{exo}[chapter]
-
+	\newcommand\math@class{report}
+	\newcommand\math@exo{chapter}
 
 	\renewcommand{\title}[1]{%
 		\def\@title{\begin{minipage}{\linewidth}\centering\bfseries\Huge #1\vskip3pt\Large\end{minipage}}%
@@ -23,13 +18,17 @@
 
 \DeclareOption{short}{
 	\PassOptionsToClass{11pt,a4paper,oneside}{article}
-	\DeclareOption*{
-		\PassOptionsToClass{\CurrentOption}{article}
-	}
-	\ProcessOptions\relax
-	\LoadClass{article}
-	\newcounter{exo}[section]
+	\newcommand\math@class{article}
+	\newcommand\math@exo{section}
 }
+
+\makeatletter
+\DeclareOption*{%
+	\PassOptionsToClass{\CurrentOption}{\math@class}%
+}
+\ProcessOptions\relax
+\LoadClass{\math@class}
+\makeatother
 
 \newif\ifauthorcalled
 \authorcalledfalse
@@ -99,6 +98,9 @@
 %Définition des exercices
 
 
+\makeatletter
+\newcounter{exo}[\math@exo]
+\makeatother
 \newcommand{\exo}{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Question \arabic{exo}}}%exercice
 
 
