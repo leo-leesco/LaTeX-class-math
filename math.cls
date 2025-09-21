@@ -6,12 +6,7 @@
 
 % TODO : make sure that using the options works correctly
 
-\newif\iflong
-\newif\ifproba
-
-\DeclareOption{long}{\longtrue}
-\DeclareOption{short}{\longfalse}
-\iflong
+\DeclareOption{long}{
 	\PassOptionsToClass{11pt,a4paper,oneside}{report}
 	\DeclareOption*{
 		\PassOptionsToClass{\CurrentOption}{report}
@@ -24,15 +19,17 @@
 	\renewcommand{\title}[1]{%
 		\def\@title{\begin{minipage}{\linewidth}\centering\bfseries\Huge #1\vskip3pt\Large\end{minipage}}%
 	}
-\else
+}
+
+\DeclareOption{short}{
 	\PassOptionsToClass{11pt,a4paper,oneside}{article}
 	\DeclareOption*{
 		\PassOptionsToClass{\CurrentOption}{article}
 	}
 	\ProcessOptions\relax
 	\LoadClass{article}
-	\newcounter{exo}
-\fi
+	\newcounter{exo}[section]
+}
 
 \newif\ifauthorcalled
 \authorcalledfalse
@@ -101,8 +98,6 @@
 
 %Définition des exercices
 
-
-%%%%%% ATTENTION : il faut enlever [chapter] dans le cas d'un article %%%%%
 
 \newcommand{\exo}{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Question \arabic{exo}}}%exercice
 
@@ -193,12 +188,12 @@
 \DeclareMathOperator{\tr}{Tr}
 \DeclareMathOperator{\Com}{Com}
 
-\ifproba
+\DeclareOption{proba}{
 	%Probabilités
 	\newcommand{\ep}{$(U,V)$ un espace probabilisable}
 	\newcommand{\EP}{$(\Omega,\T,\P)$ un espace probabilisé}
 	\DeclareMathOperator{\ind}{\vert\!\!\!\!\raisebox{-.1ex}{\string_}\!\!\!\!\vert}%symbole d'indépendance
-\fi
+}
 
 \DeclareMathOperator{\e}{e}
 \DeclareMathOperator{\argsinh}{argsinh}
