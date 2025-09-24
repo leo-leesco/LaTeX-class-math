@@ -61,42 +61,45 @@
 }
 % this is taken from \renew@command
 \newcommand\rmo@redeclare[2]{
-\begingroup \escapechar\m@ne\xdef\@gtempa{{\string#1}}\endgroup
-\expandafter\@ifundefined\@gtempa
+	\begingroup \escapechar\m@ne\xdef\@gtempa{{\string#1}}\endgroup
+	\expandafter\@ifundefined\@gtempa
 	{\@latex@error{\noexpand#1undefined}\@ehc}%
 	\relax
 	\expandafter\rmo@declmathop\rmo@s{#1}{#2}
-	}
+}
 
-	% This is just \@declmathop without \@ifdefinable
-	\newcommand\rmo@declmathop[3]{
-		\DeclareRobustCommand{#2}{\qopname\newmcodes@#1{#3}}
-	}
+% This is just \@declmathop without \@ifdefinable
+\newcommand\rmo@declmathop[3]{
+	\DeclareRobustCommand{#2}{\qopname\newmcodes@#1{#3}}
+}
 
-	\@onlypreamble\reDeclareMathOperator
+\@onlypreamble\reDeclareMathOperator
 
+\makeatother
+
+%Pour les figures
+\RequirePackage{graphicx}
+
+%Pour faire des tableaux flexibles
+\RequirePackage{tabularray}
+
+%Packages mathématiques
+\RequirePackage{amsmath,amssymb,amsfonts}
+\RequirePackage{esint}
+\RequirePackage{stmaryrd}%permet \llbracket et \rrbracket
+\RequirePackage{dsfont}%permet le style de l'indicatrice
+\RequirePackage{mathtools}%permet l'utilisation de \x[flèche] et \mathclap (pour réduire les espaces dans les commentaires)
+
+%Définition des exercices
+
+
+\makeatletter
+\newcounter{exo}[\math@exo]
+\newcommand{\exo@star}{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Question \arabic{exo}}\vskip 0.5cm}%exercice sans titre
+\newcommand{\exo@nostar}[1]{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Question \arabic{exo}} -- #1\vskip 0.5cm}%exercice avec titre
+
+\newcommand{\exo}{\@ifstar\exo@star\exo@nostar}
 	\makeatother
-
-	%Pour les figures
-	\RequirePackage{graphicx}
-
-	%Pour faire des tableaux flexibles
-	\RequirePackage{tabularray}
-
-	%Packages mathématiques
-	\RequirePackage{amsmath,amssymb,amsfonts}
-	\RequirePackage{esint}
-	\RequirePackage{stmaryrd}%permet \llbracket et \rrbracket
-	\RequirePackage{dsfont}%permet le style de l'indicatrice
-	\RequirePackage{mathtools}%permet l'utilisation de \x[flèche] et \mathclap (pour réduire les espaces dans les commentaires)
-
-	%Définition des exercices
-
-
-	\makeatletter
-	\newcounter{exo}[\math@exo]
-	\makeatother
-	\newcommand{\exo}{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Question \arabic{exo}}}%exercice
 
 
 	%Définition des questions d'un exercice
