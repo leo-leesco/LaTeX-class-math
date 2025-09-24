@@ -4,10 +4,14 @@
 % - short || long, with long, you get a formatted first page
 % - TODO : rare mathematical symbols can be imported : proba (other options might come in the future) (currently disabled)
 
+\newcommand\math@class{article}
+\newcommand\math@exo{section}
+
+\makeatletter
 \DeclareOption{long}{
 	\PassOptionsToClass{11pt,a4paper,oneside}{report}
-	\newcommand\math@class{report}
-	\newcommand\math@exo{chapter}
+	\renewcommand\math@class{report}
+	\renewcommand\math@exo{chapter}
 
 	\renewcommand{\title}[1]{%
 		\def\@title{\begin{minipage}{\linewidth}\centering\bfseries\Huge #1\vskip3pt\Large\end{minipage}}%
@@ -16,14 +20,12 @@
 
 \DeclareOption{short}{
 	\PassOptionsToClass{11pt,a4paper,oneside}{article}
-	\newcommand\math@class{article}
-	\newcommand\math@exo{section}
 }
 
-\makeatletter
 \DeclareOption*{%
 	\PassOptionsToClass{\CurrentOption}{\math@class}%
 }
+\ExecuteOptions{short}
 \ProcessOptions\relax
 \LoadClass{\math@class}
 \makeatother
