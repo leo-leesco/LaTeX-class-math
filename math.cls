@@ -22,6 +22,28 @@
 	\PassOptionsToClass{11pt,a4paper,oneside}{article}
 }
 
+\newenvironment{indication}{\ignorespaces}{}
+
+\newsavebox{\indicationbox}
+\DeclareOption{indication}{
+	\renewenvironment{indication}
+	{\begin{lrbox}{\indicationbox}\begin{minipage}{\textwidth}Indication :~}
+				{\end{minipage}\end{lrbox}\fbox{\usebox{\indicationbox}}}
+}
+
+\newenvironment{commentaire}{\ignorespaces}{}
+
+\newsavebox{\commentairebox}
+\DeclareOption{commentaire}{
+	\renewenvironment{commentaire}
+	{\begin{lrbox}{\commentairebox}\begin{minipage}{.9\textwidth}Commentaire :~}
+				{\end{minipage}\end{lrbox}\fbox{\usebox{\commentairebox}}}
+}
+
+\DeclareOption{note}{
+	\newcommand{\note}[1]{\textbf{Note : #1/20}}
+}
+
 \DeclareOption*{%
 	\PassOptionsToClass{\CurrentOption}{\math@class}%
 }
@@ -49,6 +71,7 @@
 	\def\@author{Léo \textsc{Leesco}}%
 \fi
 \makeatother
+
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
@@ -203,6 +226,11 @@
 
 \DeclareMathOperator{\e}{e}
 \DeclareMathOperator{\argsinh}{argsinh}
+\DeclareMathOperator{\argcosh}{argcosh}
+\DeclareMathOperator{\argtanh}{argtanh}
+\DeclareMathOperator{\argsh}{argsh}
+\DeclareMathOperator{\argch}{argch}
+\DeclareMathOperator{\argth}{argth}
 \DeclareMathOperator{\cotan}{cotan}
 \DeclareMathOperator{\id}{id}
 
