@@ -27,7 +27,7 @@
 \newsavebox{\indicationbox}
 \DeclareOption{indication}{
 	\renewenvironment{indication}
-	{\begin{lrbox}{\indicationbox}\begin{minipage}{\textwidth}Indication :~}
+	{\begin{lrbox}{\indicationbox}\begin{minipage}{.9\textwidth}Indication :~}
 				{\end{minipage}\end{lrbox}\fbox{\usebox{\indicationbox}}}
 }
 
@@ -120,8 +120,8 @@
 
 \makeatletter
 \newcounter{exo}[\math@exo]
-\newcommand{\exo@star}{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Question \arabic{exo}}\vskip 0.5cm}%exercice sans titre
-\newcommand{\exo@nostar}[1]{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Question \arabic{exo}} -- #1\vskip 0.5cm}%exercice avec titre
+\newcommand{\exo@star}{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Exercice \arabic{exo}}\vskip 0.5cm}%exercice sans titre
+\newcommand{\exo@nostar}[1]{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Exercice \arabic{exo}} -- #1\vskip 0.5cm}%exercice avec titre
 
 \newcommand{\exo}{\@ifstar\exo@star\exo@nostar}
 	\makeatother
@@ -160,7 +160,7 @@
 
 	\newcommand{\init}{\textbf{Initialisation :}\\ \\}
 	\newcommand{\here}{\pagebreak[3]\textbf{Hérédité :}\\ \\}
-	\newcommand{\ssi}{\ensuremath{ssi}}
+	\newcommand{\ssi}{\ensuremath{ssi}\ }
 
 	\newcommand{\qqquad}{\qquad\quad}
 
