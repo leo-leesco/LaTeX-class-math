@@ -75,6 +75,7 @@
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
+\RequirePackage[french]{babel}
 \RequirePackage[margin=2cm]{geometry}
 \RequirePackage[colorlinks=true,linkcolor=blue]{hyperref}%à caution
 
