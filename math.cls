@@ -125,97 +125,97 @@
 \newcommand{\exo@nostar}[1]{\stepcounter{exo}\vskip 0.5cm\pagebreak[3]\noindent\textbf{Exercice \arabic{exo}} -- #1\vskip 0.5cm}%exercice avec titre
 
 \newcommand{\exo}{\@ifstar\exo@star\exo@nostar}
-	\makeatother
+\makeatother
 
 
-	%Définition des questions d'un exercice
+%Définition des questions d'un exercice
 
-	\newcounter{enuma}[exo]%compteur
-	\newcommand{\q}{\stepcounter{enuma}\vskip 0.3cm\noindent\textbf{\arabic{enuma}}.\ }%question d'un exercice
+\newcounter{enuma}[exo]%compteur
+\newcommand{\q}{\stepcounter{enuma}\vskip 0.3cm\noindent\textbf{\arabic{enuma}}.\ }%question d'un exercice
 
-	\newcounter{enumaa}[enuma]%compteur
-	\newcommand{\qq}{\stepcounter{enumaa}\textbf{\alph{enumaa}}.\ }%sous-question d'un exercice
+\newcounter{enumaa}[enuma]%compteur
+\newcommand{\qq}{\stepcounter{enumaa}\textbf{\alph{enumaa}}.\ }%sous-question d'un exercice
 
-	%Raccourcis de fonction
+%Raccourcis de fonction
 
-	\newcommand{\donc}{\implies}
-	\newcommand{\vers}{\longrightarrow}
-	\newcommand{\tend}{\rightarrow}
-	\newcommand{\deriv}[1]{~\mathrm{d}#1}
-	\newcommand{\diff}[1]{\mathrm{d}#1}
-	\newcommand{\f}[4]{\ensuremath{\begin{array}{rcl}#1&\vers&#2\\#3&\longmapsto&#4\end{array}}}
+\newcommand{\donc}{\implies}
+\newcommand{\vers}{\longrightarrow}
+\newcommand{\tend}{\rightarrow}
+\newcommand{\deriv}[1]{~\mathrm{d}#1}
+\newcommand{\diff}[1]{\mathrm{d}#1}
+\newcommand{\f}[4]{\ensuremath{\begin{array}{rcl}#1&\vers&#2\\#3&\longmapsto&#4\end{array}}}
 
-	\newcommand{\vecteur}[1]{\overrightarrow{#1}}
-	\newcommand{\norme}[1]{\left\Vert \vecteur{#1}\right\Vert}
-	\newcommand{\scal}[2]{\vecteur{#1}.\vecteur{#2}}
+\newcommand{\vecteur}[1]{\overrightarrow{#1}}
+\newcommand{\norme}[1]{\left\Vert \vecteur{#1}\right\Vert}
+\newcommand{\scal}[2]{\vecteur{#1}.\vecteur{#2}}
 
-	\newcommand{\ps}[2]{\left\langle#1,#2\right\rangle}%produit scalaire général
-	\newcommand{\n}[1]{\left\Vert#1\right\Vert}%norme générale
+\newcommand{\ps}[2]{\left\langle#1,#2\right\rangle}%produit scalaire général
+\newcommand{\n}[1]{\left\Vert#1\right\Vert}%norme générale
 
-	\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
-	\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
-	\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
-	\newcommand{\avg}[1]{\ensuremath{\left\langle#1\right\rangle}}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\avg}[1]{\ensuremath{\left\langle#1\right\rangle}}
 
-	\renewcommand{\d}{\displaystyle}
+\renewcommand{\d}{\displaystyle}
 
-	\newcommand{\init}{\textbf{Initialisation :}\\ \\}
-	\newcommand{\here}{\pagebreak[3]\textbf{Hérédité :}\\ \\}
-	\newcommand{\ssi}{\ensuremath{ssi}\ }
+\newcommand{\init}{\textbf{Initialisation :}\\ \\}
+\newcommand{\here}{\pagebreak[3]\textbf{Hérédité :}\\ \\}
+\newcommand{\ssi}{\ensuremath{ssi}\ }
 
-	\newcommand{\qqquad}{\qquad\quad}
+\newcommand{\qqquad}{\qquad\quad}
 
-	\newcommand{\entour}[1]{\tikz\node[circle,draw,inner sep=1pt,outer sep=1pt]{#1};}%permet d'entourer par un cercle un ensemble de caractères
+\newcommand{\entour}[1]{\tikz\node[circle,draw,inner sep=1pt,outer sep=1pt]{#1};}%permet d'entourer par un cercle un ensemble de caractères
 
-	\newcommand{\comment}[2]{\ensuremath{\underbrace{#2}_{\mathclap{#1}}}}
+\newcommand{\comment}[2]{\ensuremath{\underbrace{#2}_{\mathclap{#1}}}}
 
 
-	%Notations
+%Notations
 
-	\newcommand{\naturn}{n\in\mathbb{N}}
-	\newcommand{\snaturn}{n\in\mathbb{N}^*}
+\newcommand{\naturn}{n\in\mathbb{N}}
+\newcommand{\snaturn}{n\in\mathbb{N}^*}
 
-	\newcommand{\N}{\mathbb{N}}
-	\newcommand{\Z}{\mathbb{Z}}
-	\newcommand{\Q}{\mathbb{Q}}
-	\newcommand{\R}{\mathbb{R}}
-	\newcommand{\C}{\mathbb{C}}
-	\newcommand{\K}{\mathbb{K}}
-	\newcommand{\U}{\mathbb{U}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\U}{\mathbb{U}}
 
-	\newcommand{\E}{\mathbb{E}}
-	\newcommand{\B}{\mathcal{B}}
-	\newcommand{\T}{\mathcal{T}}
-	\newcommand{\A}{\mathcal{A}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\A}{\mathcal{A}}
 
-	\newcommand{\1}{\mathds1}
+\newcommand{\1}{\mathds1}
 
-	\renewcommand{\P}{\mathcal{P}}
-	\renewcommand{\S}{\mathcal{S}}
-	\newcommand{\D}{\mathcal{D}}
-	\newcommand{\F}{\mathcal{F}}
-	\newcommand{\V}{\mathcal{V}}
+\renewcommand{\P}{\mathcal{P}}
+\renewcommand{\S}{\mathcal{S}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\V}{\mathcal{V}}
 
-	%Nombres complexes
+%Nombres complexes
 
-	\renewcommand{\Re}{\mathfrak{Re}}
-	\renewcommand{\Im}{\mathfrak{Im}}
+\renewcommand{\Re}{\mathfrak{Re}}
+\renewcommand{\Im}{\mathfrak{Im}}
 
-	%Algèbre linéaire
+%Algèbre linéaire
 
-	\newcommand{\vect}{\mathrm{Vect}}
-	\newcommand{\Vect}{\mathrm{Vect}}
-	\renewcommand{\L}{\mathcal L}
-	\DeclareMathOperator{\im}{Im}
-	\reDeclareMathOperator{\ker}{Ker}
-	\DeclareMathOperator{\mat}{mat}
-	\DeclareMathOperator{\rg}{rg}
-	\newcommand{\M}{\mathcal M}
-	\DeclareMathOperator{\Tr}{Tr}
-	\DeclareMathOperator{\tr}{Tr}
-	\DeclareMathOperator{\Com}{Com}
+\newcommand{\vect}{\mathrm{Vect}}
+\newcommand{\Vect}{\mathrm{Vect}}
+\renewcommand{\L}{\mathcal L}
+\DeclareMathOperator{\im}{Im}
+\reDeclareMathOperator{\ker}{Ker}
+\DeclareMathOperator{\mat}{mat}
+\DeclareMathOperator{\rg}{rg}
+\newcommand{\M}{\mathcal M}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{Tr}
+\DeclareMathOperator{\Com}{Com}
 
-	\iffalse{}
+\iffalse{}
 	\DeclareOption{proba}{
 		%Probabilités
 		\newcommand{\ep}{$(U,V)$ un espace probabilisable}
