@@ -72,6 +72,10 @@
 \fi
 \makeatother
 
+\makeatletter
+% Initialize @date to \today immediately
+\gdef\@date{\today}
+\makeatother
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
