@@ -1,8 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{math}[2025/01/25 Mathematical and scientific documents, see source for options]
 % Available options :
-% - short || long, with long, you get a formatted first page
-% - TODO : rare mathematical symbols can be imported : proba (other options might come in the future) (currently disabled)
+% - short (default) | long : long uses the report class (chapters) + a formatted title
+% - wip         : provides \wip, a « work in progress » icon (loads tikz)
+% - proba       : probability shortcuts \ep, \EP and the independence operator \ind
+% - indication  : turn the {indication} environment into a framed box
+% - commentaire : turn the {commentaire} environment into a framed box
+% - note        : provides \note{n} to print a grade « Note : n/20 »
+% Any unrecognized option is forwarded to the underlying article/report class.
 
 \newcommand\math@class{article}
 \newcommand\math@exo{section}
