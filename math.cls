@@ -74,6 +74,17 @@
 	\newcommand{\note}[1]{\textbf{Note : #1/20}}
 }
 
+% Probability shortcuts. \DeclareMathOperator needs amsmath, and \T/\P are
+% defined later in this file, so defer the body to \AtEndOfClass (same reason
+% as \wip above).
+\DeclareOption{proba}{%
+	\AtEndOfClass{%
+		\newcommand{\ep}{$(U,V)$ un espace probabilisable}%
+		\newcommand{\EP}{$(\Omega,\T,\P)$ un espace probabilisé}%
+		\DeclareMathOperator{\ind}{\vert\!\!\!\!\raisebox{-.1ex}{\string_}\!\!\!\!\vert}%symbole d'indépendance
+	}%
+}
+
 \DeclareOption*{%
 	\PassOptionsToClass{\CurrentOption}{\math@class}%
 }
@@ -268,16 +279,6 @@
 	\DeclareMathOperator{\Tr}{Tr}
 	\DeclareMathOperator{\tr}{Tr}
 	\DeclareMathOperator{\Com}{Com}
-
-	\iffalse{}
-	\DeclareOption{proba}{
-		%Probabilités
-		\newcommand{\ep}{$(U,V)$ un espace probabilisable}
-		\newcommand{\EP}{$(\Omega,\T,\P)$ un espace probabilisé}
-
-		\DeclareMathOperator{\ind}{\vert\!\!\!\!\raisebox{-.1ex}{\string_}\!\!\!\!\vert}%symbole d'indépendance
-	}
-\fi
 
 \DeclareMathOperator{\e}{e}
 \DeclareMathOperator{\argsinh}{argsinh}
