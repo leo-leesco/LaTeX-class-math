@@ -22,6 +22,31 @@
 	\PassOptionsToClass{11pt,a4paper,oneside}{article}
 }
 
+% \wip draws a tikz icon and, for the PDF bookmarks, needs hyperref's
+% \pdfstringdefDisableCommands. Neither exists this early (the option body runs
+% during \ProcessOptions, before \LoadClass and the package loads), so wrap the
+% definition in \AtEndOfClass: it then runs once tikz and hyperref are in.
+\DeclareOption{wip}{%
+	\AtEndOfClass{%
+		\newcommand{\wip}[1][1em]{%
+			\resizebox{!}{#1}{\begin{tikzpicture}[limb/.style={line cap=round,line width=1.5mm,line join=bevel}]
+					\draw[line width=2mm,rounded corners,fill=yellow] (-2,0) -- (0,-2) -- (2,0) -- (0,2) -- cycle;
+					\fill (1.5mm,7mm) circle (1.5mm);
+					\fill(0,-7.5mm) -- ++(10mm,0mm) -- ++(120:2mm)--++(100:1mm)--++(150:2mm) arc (70:170:2.5mm and 1mm);
+					\draw[limb] (-7.5mm,-6.5mm)--++(70:4mm)--++(85:4mm) coordinate(a)--++(-45:5mm)--(-2.5mm,-6.5mm);
+					\fill[rotate around={45:(a)}] ([shift={(-0.5mm,0.55mm)}]a) --++(0mm,-3mm)--++
+					(7mm,-0.5mm)coordinate(b)--++(0mm,4mm)coordinate(c)--cycle;
+					\draw[limb] ([shift={(-0.6mm,-0.4mm)}]b) --++(-120:5mm) ([shift={(-0.5mm,-0.5mm)}]c) --++
+					(-3mm,0mm)--++(-100:3mm)coordinate (d);
+					\draw[ultra thick] (d) -- ++(-45:1.25cm);
+				\end{tikzpicture}}%
+		}
+		% In PDF bookmarks (outline) the icon has no text equivalent; tell hyperref to
+		% drop it there only. The typeset heading and the TOC still render it.
+		\pdfstringdefDisableCommands{\def\wip{}}%
+	}%
+}
+
 \newenvironment{indication}{\ignorespaces}{}
 
 \newsavebox{\indicationbox}
@@ -126,6 +151,9 @@
 
 %Pour les figures
 \RequirePackage{graphicx}
+
+%Pour les dessins (\entour, et l'icône \wip de l'option « wip »)
+\RequirePackage{tikz}
 
 %Pour faire des tableaux flexibles
 \RequirePackage{tabularray}
