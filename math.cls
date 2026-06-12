@@ -11,6 +11,7 @@
 
 \newcommand\math@class{article}
 \newcommand\math@exo{section}
+\newcommand\math@language{french}% babel main language; override with language=...
 
 \makeatletter
 \DeclareOption{long}{
@@ -85,8 +86,21 @@
 	}%
 }
 
+% Catch-all: recognize the key-value option language=<lang> (sets the babel main
+% language, default french); anything else is forwarded to the underlying class.
+% \CurrentOption is split on "="; appending "==\@nil" makes the split well-defined
+% whether or not the option carried a value.
+\def\math@@languagekey{language}
+\def\math@parseopt#1=#2=#3\@nil{%
+	\def\math@@optkey{#1}%
+	\ifx\math@@optkey\math@@languagekey
+		\def\math@language{#2}%
+	\else
+		\PassOptionsToClass{\CurrentOption}{\math@class}%
+	\fi
+}
 \DeclareOption*{%
-	\PassOptionsToClass{\CurrentOption}{\math@class}%
+	\expandafter\math@parseopt\CurrentOption==\@nil
 }
 \ExecuteOptions{short}
 \ProcessOptions\relax
@@ -137,7 +151,10 @@
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
-\RequirePackage[french]{babel}
+\makeatletter
+\edef\math@babelopt{\math@language}
+\expandafter\RequirePackage\expandafter[\math@babelopt]{babel}
+\makeatother
 \RequirePackage[margin=2cm]{geometry}
 \RequirePackage[colorlinks=true,linkcolor=blue]{hyperref}%à caution
 
